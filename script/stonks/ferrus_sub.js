@@ -7,6 +7,7 @@ export async function main(ns) {
   var stockBuyPer = 0.6; // Minimum stock forcast
   var stockVolPer = 0.05; // Maximum volitilty
   var moneyKeep = 1000000000; // Leave this much in wallet
+  var moneyStrt = 2000000000; // Don't buy unless we have this much (reduces fee loss)
   var minSharePer = 5; // Minimum stocks in each purchase (increase to reduce fee loss when funds are low)
 
   while (true) {
@@ -37,8 +38,9 @@ export async function main(ns) {
 
     if (forecast >= stockBuyPer && volPer <= stockVolPer) {
       if (
+        playerMoney >= moneyStrt &&
         playerMoney - moneyKeep >
-        ns.stock.getPurchaseCost(stock, minSharePer, "Long")
+          ns.stock.getPurchaseCost(stock, minSharePer, "Long")
       ) {
         var shares = Math.min(
           (playerMoney - moneyKeep - 100000) / askPrice,
