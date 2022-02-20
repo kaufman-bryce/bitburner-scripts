@@ -2,16 +2,17 @@
 // u/ferrus_aub stock script using simple portfolio algorithm.
 /** @param {NS} ns **/
 export async function main(ns) {
-  var maxSharePer = 1.0;
-  var stockBuyPer = 0.6;
-  var stockVolPer = 0.05;
-  var moneyKeep = 1000000000;
-  var minSharePer = 5;
+  var maxSharePer = 1.0; // How much of max shares are we willing to buy?
+  var stockBuyPer = 0.6; // Minimum stock forcast
+  var stockVolPer = 0.05; // Maximum volitilty
+  var moneyKeep = 1000000000; // Leave this much in wallet
+  var minSharePer = 10; // Minimum stocks in each purchase (increase to reduce fee loss)
 
   while (true) {
     ns.disableLog("disableLog");
     ns.disableLog("sleep");
     ns.disableLog("getServerMoneyAvailable");
+    // Sort symbols to prioritize highest forcast (/u/humm_what_not)
     var stocks = ns.stock.getSymbols().sort(function (a, b) {
       return ns.stock.getForecast(b) - ns.stock.getForecast(a);
     });
