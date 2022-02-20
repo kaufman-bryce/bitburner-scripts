@@ -1,4 +1,5 @@
 {
     "bitburner.authToken": "QPZ3Vczf4qmcAke2yexh9qqDyOVq/XHlVFtcjo5iJ4yfQ50UvxMi7tLy/6gkb6mu",
-    "bitburner.showPushSuccessNotification": true
+    "bitburner.showPushSuccessNotification": true,
+    "editor.tabSize": 2
 }
