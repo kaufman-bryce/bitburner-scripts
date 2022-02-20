@@ -9,9 +9,7 @@ var moneyThresh = args[1] * 0.9;
 // Defines the maximum security level the target server can
 // have. If the target's security level is higher than this,
 // we'll weaken it before doing anything else
-print(args[2]);
 var securityThresh = args[2] + 5;
-
 
 // Infinite loop that continously hacks/grows/weakens the target server
 while (true) {
