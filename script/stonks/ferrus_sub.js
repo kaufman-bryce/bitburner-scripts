@@ -1,5 +1,6 @@
 // Built upon u/pwillia7 's stock script.
 // u/ferrus_aub stock script using simple portfolio algorithm.
+// https://www.reddit.com/r/Bitburner/comments/rn7l84/stock_script_to_end_your_financial_problems/
 /** @param {NS} ns **/
 export async function main(ns) {
   var maxSharePer = 1.0; // How much of max shares are we willing to buy?
