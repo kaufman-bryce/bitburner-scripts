@@ -21,7 +21,11 @@ export async function main(ns) {
       const homeRamMaxPercent =
         (host.maxRam - ns.getScriptRam(ns.getScriptName())) * 0.9;
       const homeRamMaxOffset = host.maxRam - 48;
-      const homeRamMax = Math.max(homeRamMaxOffset, homeRamMaxPercent);
+      const homeRamCutoff = ns.args[1] > 0 ? ns.args[1] : Math.pow(2 ^ 20);
+      const homeRamMax = Math.min(
+        homeRamCutoff,
+        Math.max(homeRamMaxOffset, homeRamMaxPercent)
+      );
 
       threads = Math.floor(homeRamMax / mem);
       ns.exec(
