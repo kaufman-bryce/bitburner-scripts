@@ -3,13 +3,18 @@ export async function main(ns) {
   let servers = new Set();
 
   function netmap(targ = "home", depth = 0, parent = null) {
-    // if (servers[targ] == undefined) {
-      servers[targ] = ns.getServer(targ);
-      servers[targ].parent = parent;
-      servers[targ].depth = depth;
-      servers[targ].children = ns.scan(targ).filter((child) => child != parent);
-      servers[targ].children.forEach((child) => netmap(child, depth + 1, targ));
-    // }
+    servers[targ] = ns.getServer(targ);
+    servers[targ].parent = parent;
+    servers[targ].depth = depth;
+    servers[targ].children = ns.scan(targ).filter((child) => child != parent);
+    servers[targ].children.forEach((child) => netmap(child, depth + 1, targ));
+    servers[targ].files = ns.ls(targ).filter((file) => {
+      const isScript =
+        file.endsWith(".js") ||
+        file.endsWith(".ns") ||
+        file.endsWith(".script");
+      return !isScript;
+    });
   }
   do {
     netmap();
