@@ -11,10 +11,16 @@ export async function main(ns) {
       servers[targ].children.forEach((child) => netmap(child, depth + 1, targ));
     }
   }
-  netmap();
-  ns.write(
-    "servers.txt",
-    JSON.stringify({ lastUpdated: ns.getTimeSinceLastAug(), servers: servers }),
-    "w"
-  );
+  do {
+    netmap();
+    await ns.write(
+      "servers.txt",
+      JSON.stringify({
+        lastUpdated: ns.getTimeSinceLastAug(),
+        servers: servers,
+      }),
+      "w"
+    );
+    await ns.sleep(5000);
+  } while (ns.args[0] == true);
 }
