@@ -1,6 +1,6 @@
 export async function main(ns) {
   let servers = JSON.parse(ns.read("servers.txt")).servers;
-  const script = "/script/earlyHackTemplate.script";
+  const script = args[0];
   for (const server in servers) {
     const host = servers[server];
     const processes = ns.ps(host.hostname);
