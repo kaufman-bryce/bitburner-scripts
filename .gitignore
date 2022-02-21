@@ -1,2 +1,5 @@
 # Ignore notes
 notes/
+
+# ignore third party
+thirdparty/
