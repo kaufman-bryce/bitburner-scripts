@@ -18,6 +18,11 @@ export async function main(ns) {
   }
   do {
     netmap();
+    servers.forEach((server) => {
+      if (!ns.serverExists(server.hostname)) {
+        servers.delete(server);
+      }
+    });
     await ns.write(
       "servers.txt",
       JSON.stringify({
