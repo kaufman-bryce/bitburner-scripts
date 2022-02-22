@@ -1,3 +1,4 @@
+/** @param {NS} ns **/
 export async function main(ns) {
   let servers = JSON.parse(ns.read("servers.txt")).servers;
   const script = ns.args[0];

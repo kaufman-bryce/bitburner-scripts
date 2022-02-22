@@ -1,3 +1,4 @@
+/** @param {NS} ns **/
 const emulateTerminalAction = (input) => {
   const terminalEl = eval("document").querySelector("#terminal-input");
   const propsKey = Object.keys(terminalEl)[1];
