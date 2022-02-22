@@ -1,5 +1,10 @@
 {
     "bitburner.authToken": "QPZ3Vczf4qmcAke2yexh9qqDyOVq/XHlVFtcjo5iJ4yfQ50UvxMi7tLy/6gkb6mu",
     "bitburner.showPushSuccessNotification": true,
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "files.exclude": {
+        "jsconfig.json": true,
+        "NetscriptDefinitions.d.ts": true,
+    },
     "editor.tabSize": 2
 }
