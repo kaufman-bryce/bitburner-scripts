@@ -1,5 +1,3 @@
-# Ignore notes
 notes/
-
-# ignore third party
 thirdparty/
+NetscriptDefinitions.d.ts
